@@ -38,4 +38,16 @@ public class InterfazUsuario {
                         System.out.println("Error: " + e.getMessage());
                     }
                     break;
+
+                case 3:
+                    System.out.println("Lista de Parejas: " + listaParejas);
+                    break;
+                case 4:
+                    System.out.println("Saliendo...");
+                    break;
+                default:
+                    System.out.println("Opción no válida.");
+                    break;
+            }
+        } while (opcion != 4);
 }
