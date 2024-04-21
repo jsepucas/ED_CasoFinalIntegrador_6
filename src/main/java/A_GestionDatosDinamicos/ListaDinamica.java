@@ -24,4 +24,13 @@ public class ListaDinamica <T>  {
         return elementos.get(indice);
     }
 
+    public ArrayList<T> getElementos() {
+        return new ArrayList<>(elementos);
+    }
+
+    @Override
+    public String toString() {
+        return elementos.toString();
+    }
+
 }
