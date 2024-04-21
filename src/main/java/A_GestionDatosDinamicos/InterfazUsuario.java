@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
- class InterfazGrafica extends JFrame {
+class InterfazGrafica extends JFrame {
     private ListaDinamica<Pareja> listaParejas;
     private DefaultListModel<String> modeloLista;
     private JList<String> lista;
@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
     private JTextField textoSegundoElemento;
 
     public InterfazGrafica() {
-        super("Gestión de Parejas de Enteros (UAX) @!");
+        super("Gestión de Parejas de Enteros");
         listaParejas = new ListaDinamica<>();
         modeloLista = new DefaultListModel<>();
         initComponents();
@@ -24,14 +24,11 @@ import java.awt.event.ActionListener;
     }
 
     private void initComponents() {
-
-        setLayout(new BorderLayout());
-
-
-        JPanel panelEntrada = new JPanel();
-        panelEntrada.setLayout(new GridLayout(3, 2, 5, 5));
+        setLayout(new BorderLayout(10, 10));
 
 
+        JPanel panelEntrada = new JPanel(new GridLayout(2, 2, 5, 5));
+        panelEntrada.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         textoPrimerElemento = new JTextField();
         textoSegundoElemento = new JTextField();
 
@@ -39,10 +36,14 @@ import java.awt.event.ActionListener;
         panelEntrada.add(textoPrimerElemento);
         panelEntrada.add(new JLabel("Segundo Elemento:"));
         panelEntrada.add(textoSegundoElemento);
+        add(panelEntrada, BorderLayout.NORTH);
 
 
+        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         JButton botonAgregar = new JButton("Agregar");
         JButton botonEliminar = new JButton("Eliminar");
+        JButton botonModificar = new JButton("Modificar");
+
         botonAgregar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 agregarPareja();
@@ -53,15 +54,22 @@ import java.awt.event.ActionListener;
                 eliminarPareja();
             }
         });
+        botonModificar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                modificarPareja();
+            }
+        });
 
-        panelEntrada.add(botonAgregar);
-        panelEntrada.add(botonEliminar);
-
-        add(panelEntrada, BorderLayout.NORTH);
+        panelBotones.add(botonAgregar);
+        panelBotones.add(botonEliminar);
+        panelBotones.add(botonModificar);
+        add(panelBotones, BorderLayout.SOUTH);
 
 
         lista = new JList<>(modeloLista);
-        add(new JScrollPane(lista), BorderLayout.CENTER);
+        JScrollPane scrollPane = new JScrollPane(lista);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder(5, 10, 10, 10));
+        add(scrollPane, BorderLayout.CENTER);
     }
 
     private void agregarPareja() {
@@ -86,8 +94,29 @@ import java.awt.event.ActionListener;
         }
     }
 
+    private void modificarPareja() {
+        int indice = lista.getSelectedIndex();
+        if (indice != -1) {
+            try {
+                int primero = Integer.parseInt(textoPrimerElemento.getText());
+                int segundo = Integer.parseInt(textoSegundoElemento.getText());
+                Pareja parejaModificada = new Pareja(primero, segundo);
+                listaParejas.getElementos().set(indice, parejaModificada);
+                modeloLista.set(indice, parejaModificada.toString());
+                textoPrimerElemento.setText("");
+                textoSegundoElemento.setText("");
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese números válidos.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione una pareja para modificar.", "Ninguna selección", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
     public static void main(String[] args) {
         new InterfazGrafica();
     }
 }
+
+
 
