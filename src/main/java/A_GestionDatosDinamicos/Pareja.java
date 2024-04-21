@@ -11,4 +11,12 @@ public class Pareja {
         this.segundoElemento = segundoElemento;
     }
 
+    public int getPrimerElemento() {
+        return primerElemento;
+    }
+
+    public void setPrimerElemento(int primerElemento) {
+        this.primerElemento = primerElemento;
+    }
+
 }
