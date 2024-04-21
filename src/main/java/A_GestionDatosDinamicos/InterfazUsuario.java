@@ -26,4 +26,16 @@ public class InterfazUsuario {
                     int segundo = scanner.nextInt();
                     listaParejas.agregarElemento(new Pareja(primero, segundo));
                     break;
+
+                case 2:
+                    System.out.print("Ingrese el índice de la pareja a eliminar: ");
+                    int indice = scanner.nextInt();
+                    try {
+                        Pareja eliminada = listaParejas.obtenerElemento(indice);
+                        listaParejas.eliminarElemento(eliminada);
+                        System.out.println("Pareja eliminada: " + eliminada);
+                    } catch (IndexOutOfBoundsException e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                    break;
 }
