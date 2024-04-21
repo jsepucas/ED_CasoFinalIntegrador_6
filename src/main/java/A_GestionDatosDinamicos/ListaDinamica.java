@@ -12,4 +12,9 @@ public class ListaDinamica <T>  {
     public void agregarElemento(T elemento) {
         elementos.add(elemento);
     }
+
+    public boolean eliminarElemento(T elemento) {
+        return elementos.remove(elemento);
+    }
+
 }
