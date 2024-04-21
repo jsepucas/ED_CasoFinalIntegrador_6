@@ -28,5 +28,10 @@ public class Pareja {
         this.segundoElemento = segundoElemento;
     }
 
+    @Override
+    public String toString() {
+        return "(" + primerElemento + ", " + segundoElemento + ")";
+    }
+
 
 }
