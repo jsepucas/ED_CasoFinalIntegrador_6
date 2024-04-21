@@ -8,4 +8,8 @@ public class ListaDinamica <T>  {
     public ListaDinamica() {
         elementos = new ArrayList<>();
     }
+
+    public void agregarElemento(T elemento) {
+        elementos.add(elemento);
+    }
 }
