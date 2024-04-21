@@ -41,7 +41,7 @@ class InterfazGrafica extends JFrame {
 
         JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         JButton botonAgregar = new JButton("Agregar");
-        JButton botonEliminar = new JButton("Eliminar");
+        JButton botonEliminar = new JButton("Eliminar ❌");
         JButton botonModificar = new JButton("Modificar");
 
         botonAgregar.addActionListener(new ActionListener() {
