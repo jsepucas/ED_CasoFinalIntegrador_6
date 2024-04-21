@@ -50,4 +50,12 @@ public class InterfazUsuario {
                     break;
             }
         } while (opcion != 4);
+
+        scanner.close();
+    }
+
+    public static void main(String[] args) {
+        new InterfazUsuario().ejecutar();
+    }
 }
+
