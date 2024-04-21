@@ -17,4 +17,11 @@ public class ListaDinamica <T>  {
         return elementos.remove(elemento);
     }
 
+    public T obtenerElemento(int indice) {
+        if (indice < 0 || indice >= elementos.size()) {
+            throw new IndexOutOfBoundsException("Índice fuera de rango");
+        }
+        return elementos.get(indice);
+    }
+
 }
