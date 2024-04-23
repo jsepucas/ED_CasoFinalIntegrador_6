@@ -12,3 +12,15 @@ public class GestorMapas {
         inicializarDatos();
     }
 
+    private void inicializarDatos() {
+        // De números a letras (ejemplo simple)
+        numerosLetras.put(1, 'A');
+        numerosLetras.put(2, 'B');
+        numerosLetras.put(3, 'C');
+
+        // De números a texto
+        numerosTextos.put(1, "uno");
+        numerosTextos.put(2, "dos");
+        numerosTextos.put(3, "tres");
+    }
+
