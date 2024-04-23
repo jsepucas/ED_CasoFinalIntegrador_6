@@ -17,3 +17,14 @@ public class MapasYDatosGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
+
+    private void initComponents() {
+        setLayout(new BorderLayout(10, 10));
+        JPanel panelEntrada = new JPanel(new GridLayout(3, 2, 5, 5));
+
+        inputNumero = new JTextField();
+        inputLetra = new JTextField();
+        inputTexto = new JTextField();
+        JButton botonAgregarLetra = new JButton("Agregar Letra");
+        JButton botonAgregarTexto = new JButton("Agregar Texto");
+        JButton botonRecuperar = new JButton("Recuperar Datos");
