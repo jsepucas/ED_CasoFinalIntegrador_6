@@ -18,12 +18,12 @@ public class GestorVentas {
         return ventas.remove(venta);
     }
 
-    // Ordenar ventas por monto
+    //  ventas por monto
     public void ordenarPorMonto() {
         ventas.sort(Comparator.comparingDouble(RegistroVenta::getMonto));
     }
 
-    // Ordenar ventas por fecha
+    //  ventas por fecha
     public void ordenarPorFecha() {
         ventas.sort(Comparator.comparing(RegistroVenta::getFecha));
     }
