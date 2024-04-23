@@ -14,7 +14,7 @@ public class MapasYDatosGUI extends JFrame {
         initComponents();
         setSize(800, 600); // Cambiar el tamaño de la ventana
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
     }
 
