@@ -96,3 +96,10 @@ public class AnalisisOrgInfoGUI extends JFrame {
             JOptionPane.showMessageDialog(this, "El monto debe ser un número válido.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
         }
 
+    }
+
+    public static void main(String[] args) {
+        new AnalisisOrgInfoGUI();
+    }
+}
+
