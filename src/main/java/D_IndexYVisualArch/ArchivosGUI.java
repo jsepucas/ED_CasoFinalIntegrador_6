@@ -32,3 +32,8 @@ public class ArchivosGUI extends JFrame {
         panelEntrada.add(botonIndexar, BorderLayout.EAST);
         add(panelEntrada, BorderLayout.NORTH);
 
+        modeloLista = new DefaultListModel<>();
+        listaArchivos = new JList<>(modeloLista);
+        add(new JScrollPane(listaArchivos), BorderLayout.CENTER);
+
+
