@@ -55,3 +55,13 @@ public class AnalisisOrgInfoGUI extends JFrame {
         panelVentas.add(inputFecha);
         panelVentas.add(botonAgregarVenta);
 
+        panelEntrada.add(panelNombres);
+        panelEntrada.add(panelVentas);
+        add(panelEntrada, BorderLayout.NORTH);
+
+        // Listas para mostrar los datos
+        listaNombresModel = new DefaultListModel<>();
+        listaNombres = new JList<>(listaNombresModel);
+        listaVentasModel = new DefaultListModel<>();
+        listaVentas = new JList<>(listaVentasModel);
+
