@@ -41,5 +41,16 @@ public class ArchivosGUI extends JFrame {
         add(botonOrdenar, BorderLayout.SOUTH);
     }
 
+    private void accionIndexar(ActionEvent e) {
+        String ruta = inputRuta.getText().trim();
+        if (!ruta.isEmpty()) {
+            indexador.indexarDirectorio(ruta);
+            modeloLista.clear();
+            for (String archivo : indexador.getListaArchivos()) {
+                modeloLista.addElement(archivo);
+            }
+        }
+    }
+
 
 
