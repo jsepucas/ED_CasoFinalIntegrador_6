@@ -6,30 +6,21 @@ import java.awt.*;
 public class FondoPanel extends JPanel {
     private Image imagen;
 
-    public FondoPanel(String  rutaImagen) {
+
+
+
+    public FondoPanel(String rutaImagen) {
         imagen = new ImageIcon(rutaImagen).getImage();
-        initComponents();
-    }
-
-    private void initComponents() {
-        setLayout(new BorderLayout());
-
-        JLabel imagenEmpresa = new JLabel(new ImageIcon(imagen));
-        imagenEmpresa.setHorizontalAlignment(JLabel.LEFT);
-        imagenEmpresa.setVerticalAlignment(JLabel.TOP);
-        add(imagenEmpresa, BorderLayout.NORTH);
-
-        JLabel sgadmLabel = new JLabel("S.G.A.D.M");
-        JLabel sgadmMeaningLabel = new JLabel("Sistema de Gestión y Análisis de Datos Multidimensionales");
-        JPanel sgadmPanel = new JPanel(new GridLayout(2, 1));
-        sgadmPanel.add(sgadmLabel);
-        sgadmPanel.add(sgadmMeaningLabel);
-        add(sgadmPanel, BorderLayout.SOUTH);
+        this.setOpaque(false);
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+        // Dibuja la imagen de fondo con opacidad reducida para un diseño minimalista
+        Graphics2D g2d = (Graphics2D) g.create();
+        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.70f)); // 50% de opacidad
+        g2d.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+        g2d.dispose();
     }
 }
