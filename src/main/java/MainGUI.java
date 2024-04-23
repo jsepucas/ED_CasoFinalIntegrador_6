@@ -22,7 +22,7 @@ public class MainGUI extends JFrame {
 //-------------------------Código de la aplicación principal-------------------------
 
     private void initComponents() {
-        FondoPanel fondoPanel = new FondoPanel("src/main/resources/6.gif");
+        FondoPanel fondoPanel = new FondoPanel("src/main/resources/6.gif", 1920, 1080 );
         setContentPane(fondoPanel);
         fondoPanel.setLayout(new BorderLayout());
 
@@ -38,22 +38,34 @@ public class MainGUI extends JFrame {
 //-------------------------------------------------------------------------------------------------------------------------------
 
         //Creación de los botones para cada módulo de la aplicación. (A, B, C, D)
-        addButton("A. Gestión de Datos Dinámicos", InterfazGrafica.class, buttonPanel);
+        addButton("A. Gestión de Datos Dinámicos ", InterfazGrafica.class, buttonPanel);
         addButton("B. Análisis y Organización de Información", AnalisisOrgInfoGUI.class, buttonPanel);
         addButton("C. Mapas y Asociación de Datos", MapasYDatosGUI.class, buttonPanel);
         addButton("D. Indexación y Visualización de Archivos", ArchivosGUI.class, buttonPanel);
 
         // Agregar el panel de botones al lado izquierdo
-        fondoPanel.add(buttonPanel, BorderLayout.WEST);
+        fondoPanel.add(buttonPanel, BorderLayout.CENTER);
 
 
         // Agregar logo al lado derecho
-        JLabel imagenEmpresa = new JLabel(new ImageIcon("src/main/resources/AlfonsoXSabio.png"));
+        JLabel imagenEmpresa = new JLabel(new ImageIcon(new ImageIcon("src/main/resources/AlfonsoXSabio.png").getImage().getScaledInstance(620, 220, Image.SCALE_SMOOTH)));
         fondoPanel.add(imagenEmpresa, BorderLayout.NORTH);
+
+        JLabel imagenEsquina = new JLabel(new ImageIcon(new ImageIcon("src/main/resources/UAX2.png").getImage().getScaledInstance(125,63 , Image.SCALE_SMOOTH)));
+        fondoPanel.add(imagenEsquina, BorderLayout.PAGE_END);
+
+
+
     }
 
     private void addButton(String text, Class<? extends JFrame> frameClass, JPanel panel) {
         JButton button = new JButton(text);
+        button.setFont(new Font("Arial", Font.BOLD, 16));
+        button.setForeground(Color.BLACK);
+        button.setBackground(new Color(0, 69, 124));
+        button.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        button.setPreferredSize(new Dimension(700, 65) );
+        button.setBorderPainted(true);
         button.addActionListener(e -> {
             try {
                 JFrame frame = frameClass.getDeclaredConstructor().newInstance();
