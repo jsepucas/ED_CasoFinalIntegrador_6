@@ -18,3 +18,11 @@ public class ArchivosGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
+
+    private void initComponents() {
+        setLayout(new BorderLayout(10, 10));
+
+        JPanel panelEntrada = new JPanel(new BorderLayout());
+        inputRuta = new JTextField(30);
+        JButton botonIndexar = new JButton("Indexar Directorio");
+        botonIndexar.addActionListener(this::accionIndexar);
