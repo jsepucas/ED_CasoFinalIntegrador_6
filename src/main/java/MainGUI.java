@@ -15,3 +15,7 @@ public class MainGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
+
+    private void initComponents() {
+        setLayout(new GridLayout(2, 2, 10, 10)); // GridLayout para organizar los botones de manera uniforme.
+
