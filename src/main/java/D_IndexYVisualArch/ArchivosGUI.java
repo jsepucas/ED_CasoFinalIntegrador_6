@@ -40,15 +40,20 @@ public class ArchivosGUI extends JFrame {
         botonOrdenar.addActionListener(e -> ordenarArchivos());
         add(botonOrdenar, BorderLayout.SOUTH);
     }
-
     private void accionIndexar(ActionEvent e) {
         String ruta = inputRuta.getText().trim();
         if (!ruta.isEmpty()) {
-            indexador.indexarDirectorio(ruta);
+            boolean exito = indexador.indexarDirectorio(ruta);
             modeloLista.clear();
-            for (String archivo : indexador.getListaArchivos()) {
-                modeloLista.addElement(archivo);
+            if (exito) {
+                for (String archivo : indexador.getListaArchivos()) {
+                    modeloLista.addElement(archivo);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "El directorio no existe.", "Error", JOptionPane.ERROR_MESSAGE);
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese una ruta.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 

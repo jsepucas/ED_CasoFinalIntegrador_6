@@ -12,13 +12,13 @@ public class IndexadorArchivos {
         listaArchivos = new ArrayList<>();
     }
 
-
-    public void indexarDirectorio(String rutaDirectorio) {
+    public boolean indexarDirectorio(String rutaDirectorio) {
         File directorio = new File(rutaDirectorio);
-        if (directorio.exists()) {
+        if (directorio.exists() && directorio.isDirectory()) {
             indexarDirectorioRecursivo(directorio);
+            return true;
         } else {
-            System.out.println("El directorio no existe.");
+            return false;
         }
     }
 
@@ -34,12 +34,10 @@ public class IndexadorArchivos {
             }
         }
     }
-
-    public void ordenarArchivos() {
-        Collections.sort(listaArchivos);
-    }
-
     public List<String> getListaArchivos() {
         return listaArchivos;
+    }
+
+    public void ordenarArchivos() {
     }
 }
