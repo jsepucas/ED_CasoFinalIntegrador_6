@@ -23,3 +23,9 @@ public class AnalisisOrgInfoGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
+
+    private void initComponents() {
+        setLayout(new BorderLayout(10, 10));
+
+        // Panel de entrada para nombres y ventas
+        JPanel panelEntrada = new JPanel(new GridLayout(2, 1, 5, 5));
