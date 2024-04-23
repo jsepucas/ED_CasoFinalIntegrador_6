@@ -1,7 +1,7 @@
 package C_MapasYDatos;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
 public class MapasYDatosGUI extends JFrame {
     private GestorMapas gestorMapas;
@@ -12,7 +12,7 @@ public class MapasYDatosGUI extends JFrame {
         super("Gestión de Mapas y Datos");
         gestorMapas = new GestorMapas();
         initComponents();
-        setSize(500, 300);
+        setSize(800, 600); // Cambiar el tamaño de la ventana
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -25,6 +25,16 @@ public class MapasYDatosGUI extends JFrame {
         inputNumero = new JTextField();
         inputLetra = new JTextField();
         inputTexto = new JTextField();
+
+        panelEntrada.add(new JLabel("Número:"));
+        panelEntrada.add(inputNumero);
+        panelEntrada.add(new JLabel("Letra:"));
+        panelEntrada.add(inputLetra);
+        panelEntrada.add(new JLabel("Texto:"));
+        panelEntrada.add(inputTexto);
+
+        add(panelEntrada, BorderLayout.NORTH);
+
         JButton botonAgregarLetra = new JButton("Agregar Letra");
         JButton botonAgregarTexto = new JButton("Agregar Texto");
         JButton botonRecuperar = new JButton("Recuperar Datos");
@@ -33,7 +43,7 @@ public class MapasYDatosGUI extends JFrame {
         botonAgregarTexto.addActionListener(e -> agregarTexto());
         botonRecuperar.addActionListener(e -> recuperarDatos());
 
-        JPanel panelBotones = new JPanel();
+        JPanel panelBotones = new JPanel(new FlowLayout());
         panelBotones.add(botonAgregarLetra);
         panelBotones.add(botonAgregarTexto);
         panelBotones.add(botonRecuperar);
@@ -45,40 +55,44 @@ public class MapasYDatosGUI extends JFrame {
     }
 
     private void agregarLetra() {
-        try {
-            int numero = Integer.parseInt(inputNumero.getText());
-            char letra = inputLetra.getText().charAt(0);
+        String numeroStr = inputNumero.getText();
+        String letraStr = inputLetra.getText();
+        if (numeroStr.matches("\\d+") && letraStr.length() == 1) {
+            int numero = Integer.parseInt(numeroStr);
+            char letra = letraStr.charAt(0);
             gestorMapas.agregarRelacionNumeroLetra(numero, letra);
             areaResultados.append("Agregada relación: " + numero + " -> " + letra + "\n");
             inputNumero.setText("");
             inputLetra.setText("");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error en la entrada de datos.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Asegúrese de ingresar un número válido y una sola letra.", "Error de Entrada", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void agregarTexto() {
-        try {
-            int numero = Integer.parseInt(inputNumero.getText());
-            String texto = inputTexto.getText();
+        String numeroStr = inputNumero.getText();
+        String texto = inputTexto.getText();
+        if (numeroStr.matches("\\d+") && !texto.isEmpty()) {
+            int numero = Integer.parseInt(numeroStr);
             gestorMapas.agregarRelacionNumeroTexto(numero, texto);
             areaResultados.append("Agregada relación texto: " + numero + " -> " + texto + "\n");
             inputNumero.setText("");
             inputTexto.setText("");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error en la entrada de datos.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Ingrese un número válido y un texto no vacío.", "Error de Entrada", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void recuperarDatos() {
-        try {
-            int numero = Integer.parseInt(inputNumero.getText());
+        String numeroStr = inputNumero.getText();
+        if (numeroStr.matches("\\d+")) {
+            int numero = Integer.parseInt(numeroStr);
             char letra = gestorMapas.obtenerLetraDeNumero(numero);
             String texto = gestorMapas.obtenerTextoDeNumero(numero);
             areaResultados.append("Recuperado para " + numero + ": Letra -> " + letra + ", Texto -> " + texto + "\n");
             inputNumero.setText("");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ingrese un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Ingrese un número válido.", "Error de Entrada", JOptionPane.ERROR_MESSAGE);
         }
     }
 
