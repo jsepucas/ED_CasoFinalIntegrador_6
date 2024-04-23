@@ -5,19 +5,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InterfazGraficaGUI extends JFrame {
+public class InterfazGrafica extends JFrame {
     private ListaDinamica<Pareja> listaParejas;
     private DefaultListModel<String> modeloLista;
     private JList<String> lista;
     private JTextField textoPrimerElemento;
     private JTextField textoSegundoElemento;
 
-    public InterfazGraficaGUI() {
+    public InterfazGrafica() {
         super("Gestión de Parejas de Enteros");
         listaParejas = new ListaDinamica<>();
         modeloLista = new DefaultListModel<>();
         initComponents();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(400, 300);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -114,7 +114,7 @@ public class InterfazGraficaGUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        new InterfazGraficaGUI();
+        new InterfazGrafica();
     }
 }
 
