@@ -38,3 +38,20 @@ public class AnalisisOrgInfoGUI extends JFrame {
         botonAgregarNombre.addActionListener(e -> agregarNombre());
         panelNombres.add(inputNombre);
         panelNombres.add(botonAgregarNombre);
+
+        // Panel para la gestión de ventas
+        JPanel panelVentas = new JPanel();
+        panelVentas.setBorder(BorderFactory.createTitledBorder("Ventas"));
+        inputCliente = new JTextField(10);
+        inputMonto = new JTextField(5);
+        inputFecha = new JTextField(7);
+        JButton botonAgregarVenta = new JButton("Agregar Venta");
+        botonAgregarVenta.addActionListener(e -> agregarVenta());
+        panelVentas.add(new JLabel("Cliente:"));
+        panelVentas.add(inputCliente);
+        panelVentas.add(new JLabel("Monto:"));
+        panelVentas.add(inputMonto);
+        panelVentas.add(new JLabel("Fecha:"));
+        panelVentas.add(inputFecha);
+        panelVentas.add(botonAgregarVenta);
+
