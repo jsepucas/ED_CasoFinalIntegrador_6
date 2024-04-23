@@ -29,3 +29,12 @@ public class AnalisisOrgInfoGUI extends JFrame {
 
         // Panel de entrada para nombres y ventas
         JPanel panelEntrada = new JPanel(new GridLayout(2, 1, 5, 5));
+
+        // Panel para la gestión de nombres
+        JPanel panelNombres = new JPanel();
+        panelNombres.setBorder(BorderFactory.createTitledBorder("Nombres"));
+        inputNombre = new JTextField(10);
+        JButton botonAgregarNombre = new JButton("Agregar Nombre");
+        botonAgregarNombre.addActionListener(e -> agregarNombre());
+        panelNombres.add(inputNombre);
+        panelNombres.add(botonAgregarNombre);
