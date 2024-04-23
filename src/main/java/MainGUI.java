@@ -21,4 +21,9 @@ public class MainGUI extends JFrame {
 
         // Botón para el módulo A - Gestión de Datos Dinámicos
         JButton btnModuloA = new JButton("Gestión de Datos Dinámicos");
-        btnModuloA.addActionListener(e -> new InterfazUsuario().setVisible(true));
+        btnModuloA.addActionListener(e -> new InterfazGraficaGUI().setVisible(true));
+
+
+        // Botón para el módulo B - Análisis y Organización de Información
+        JButton btnModuloB = new JButton("Análisis y Organización de Información");
+        btnModuloB.addActionListener(e -> new AnalisisOrgInfoGUI().setVisible(true));
