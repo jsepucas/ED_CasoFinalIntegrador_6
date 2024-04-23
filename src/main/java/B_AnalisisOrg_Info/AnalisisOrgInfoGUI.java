@@ -65,3 +65,10 @@ public class AnalisisOrgInfoGUI extends JFrame {
         listaVentasModel = new DefaultListModel<>();
         listaVentas = new JList<>(listaVentasModel);
 
+        JPanel panelListas = new JPanel(new GridLayout(1, 2, 10, 10));
+        panelListas.add(new JScrollPane(listaNombres));
+        panelListas.add(new JScrollPane(listaVentas));
+
+        add(panelListas, BorderLayout.CENTER);
+    }
+
