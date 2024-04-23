@@ -10,6 +10,14 @@ public class GestorVentas {
         ventas = new ArrayList<>();
     }
 
+    public void agregarVenta(RegistroVenta venta) {
+        ventas.add(venta);
+    }
+
+    public boolean eliminarVenta(RegistroVenta venta) {
+        return ventas.remove(venta);
+    }
+
 
 
 
