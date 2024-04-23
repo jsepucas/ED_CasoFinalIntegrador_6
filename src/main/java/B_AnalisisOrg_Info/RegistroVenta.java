@@ -12,7 +12,10 @@ public class RegistroVenta {
         this.fecha = fecha;
     }
 
-
+    @Override
+    public String toString() {
+        return "Cliente: " + cliente + ", Monto: $" + monto + ", Fecha: " + fecha;
+    }
 
 
 }
