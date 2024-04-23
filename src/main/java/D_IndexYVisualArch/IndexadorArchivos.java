@@ -34,3 +34,12 @@ public class IndexadorArchivos {
             }
         }
     }
+
+    public void ordenarArchivos() {
+        Collections.sort(listaArchivos);
+    }
+
+    public List<String> getListaArchivos() {
+        return listaArchivos;
+    }
+}
