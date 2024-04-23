@@ -1,18 +1,18 @@
-package A_GestionDatosDinamicos;
+package A_GestionDatosDinámicos;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-class InterfazGrafica extends JFrame {
+public class InterfazGraficaGUI extends JFrame {
     private ListaDinamica<Pareja> listaParejas;
     private DefaultListModel<String> modeloLista;
     private JList<String> lista;
     private JTextField textoPrimerElemento;
     private JTextField textoSegundoElemento;
 
-    public InterfazGrafica() {
+    public InterfazGraficaGUI() {
         super("Gestión de Parejas de Enteros");
         listaParejas = new ListaDinamica<>();
         modeloLista = new DefaultListModel<>();
@@ -114,7 +114,7 @@ class InterfazGrafica extends JFrame {
     }
 
     public static void main(String[] args) {
-        new InterfazGrafica();
+        new InterfazGraficaGUI();
     }
 }
 

@@ -1,4 +1,4 @@
-package A_GestionDatosDinamicos;
+package A_GestionDatosDinámicos;
 
 import java.util.ArrayList;
 public class ListaDinamica <T>  {

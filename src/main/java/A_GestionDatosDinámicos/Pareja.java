@@ -1,4 +1,4 @@
-package A_GestionDatosDinamicos;
+package A_GestionDatosDinámicos;
 
 
 public class Pareja {
