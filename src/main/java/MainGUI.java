@@ -27,3 +27,12 @@ public class MainGUI extends JFrame {
         // Botón para el módulo B - Análisis y Organización de Información
         JButton btnModuloB = new JButton("Análisis y Organización de Información");
         btnModuloB.addActionListener(e -> new AnalisisOrgInfoGUI().setVisible(true));
+
+        // Botón para el módulo C - Mapas y Asociación de Datos
+        JButton btnModuloC = new JButton("Mapas y Asociación de Datos");
+        btnModuloC.addActionListener(e -> new MapasYDatosGUI().setVisible(true));
+
+        // Botón para el módulo D - Indexación y Visualización de Archivos
+        JButton btnModuloD = new JButton("Indexación y Visualización de Archivos");
+        btnModuloD.addActionListener(e -> new ArchivosGUI().setVisible(true));
+
