@@ -1,6 +1,5 @@
 //Imports
 import javax.swing.*;
-import javax.swing.SwingUtilities;
 import java.awt.*;
 
 import A_GestionDatosDinámicos.InterfazGrafica;
@@ -20,22 +19,21 @@ public class MainGUI extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-
     }
 
 //-------------------------Código de la aplicación principal-------------------------
 
     private void initComponents() {
-        //---------------------------------------------------------------//  Para editar el fondo???
-
         FondoPanel fondoPanel = new FondoPanel("src/main/resources/Logo.png");
+        setContentPane(fondoPanel);
         fondoPanel.setLayout(new BorderLayout());
 
-        JLabel imagenEmpresa = new JLabel(new ImageIcon("src/main/resources/Logo.png"));
-        fondoPanel.add(imagenEmpresa, BorderLayout.NORTH);
 
+        // Panel para los botones en el lado izquierdo
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+        buttonPanel.setOpaque(false); // Panel transparente para mostrar el fondo
 
-        //Layout para organizar los botones de manera uniforme?
 
 //-------------------------------------------------------------------------------------------------------------------------------
 
@@ -44,47 +42,28 @@ public class MainGUI extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
 
         //Creación de los botones para cada módulo de la aplicación. (A, B, C, D)
-        JButton btnModuloA = new JButton("Gestión de Datos Dinámicos");
-        JButton btnModuloB = new JButton("Análisis y Organización de Información");
-        JButton btnModuloC = new JButton("Mapas y Asociación de Datos");
-        JButton btnModuloD = new JButton("Indexación y Visualización de Archivos");
 
-           //Asignación de acciones a los botones.
-        btnModuloA.addActionListener(e -> new InterfazGrafica().setVisible(true));
-        btnModuloB.addActionListener(e -> new AnalisisOrgInfoGUI().setVisible(true));
-        btnModuloC.addActionListener(e -> new MapasYDatosGUI().setVisible(true));
-        btnModuloD.addActionListener(e -> new ArchivosGUI().setVisible(true));
+        addButton("A. Gestión de Datos Dinámicos", new InterfazGrafica(), buttonPanel);
+        addButton("B. Análisis y Organización de Información", new AnalisisOrgInfoGUI(), buttonPanel);
+        addButton("C. Mapas y Asociación de Datos", new MapasYDatosGUI(), buttonPanel);
+        addButton("D. Indexación y Visualización de Archivos", new ArchivosGUI(), buttonPanel);
 
+        fondoPanel.add(buttonPanel, BorderLayout.WEST);
 
-
-        //----------------------Configuración de los gbc's para cada botón.---------------------------
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.BOTH;
-        gbc.insets = new Insets(0, 0, 15, 15);
-        add(btnModuloA, gbc);
-
-        gbc.gridx = 3;
-        add(btnModuloB, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.gridwidth = 1; // Restablece gridwidth a 1 para los siguientes botones
-        add(btnModuloC, gbc);
-
-        gbc.gridx = 3;
-        add(btnModuloD, gbc);
-
-
-        //-------------------------Añadir el panel de fondo al contenedor principal.-------------------------
-
-        add(fondoPanel);
+        // Agregar logo al lado derecho
+        JLabel imagenEmpresa = new JLabel(new ImageIcon("src/main/resources/Logo.png"));
+        fondoPanel.add(imagenEmpresa, BorderLayout.EAST);
     }
 
-    //-------------------------Método principal-------------------------
+    private void addButton(String text, JFrame frame, JPanel panel) {
+        JButton button = new JButton(text);
+        button.addActionListener(e -> frame.setVisible(true));
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(button);
+        panel.add(Box.createRigidArea(new Dimension(0, 10))); // Espaciado entre botones
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MainGUI::new);
     }
 }
-

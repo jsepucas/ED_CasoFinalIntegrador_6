@@ -6,7 +6,7 @@ import java.awt.*;
 public class FondoPanel extends JPanel {
     private Image imagen;
 
-    public FondoPanel(String rutaImagen) {
+    public FondoPanel(String  rutaImagen) {
         imagen = new ImageIcon(rutaImagen).getImage();
         initComponents();
     }
@@ -24,7 +24,7 @@ public class FondoPanel extends JPanel {
         JPanel sgadmPanel = new JPanel(new GridLayout(2, 1));
         sgadmPanel.add(sgadmLabel);
         sgadmPanel.add(sgadmMeaningLabel);
-        add(sgadmPanel, BorderLayout.NORTH);
+        add(sgadmPanel, BorderLayout.SOUTH);
     }
 
     @Override
