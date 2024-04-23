@@ -19,3 +19,6 @@ public class MainGUI extends JFrame {
     private void initComponents() {
         setLayout(new GridLayout(2, 2, 10, 10)); // GridLayout para organizar los botones de manera uniforme.
 
+        // Botón para el módulo A - Gestión de Datos Dinámicos
+        JButton btnModuloA = new JButton("Gestión de Datos Dinámicos");
+        btnModuloA.addActionListener(e -> new InterfazUsuario().setVisible(true));
