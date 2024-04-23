@@ -1,4 +1,3 @@
-
 //Imports
 import javax.swing.*;
 import javax.swing.SwingUtilities;
@@ -14,9 +13,9 @@ public class MainGUI extends JFrame {
 
     public MainGUI() {
 
-        super("Sistema de Gestión y Análisis de Datos Multidimensionales de la UAX");
+        super("Sistema de Gestión y Análisis de Datos Multidimensionales de la UAX \uD83D\uDCCA ");
         initComponents();
-        setSize(800, 600);
+        setSize(1020, 710);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
