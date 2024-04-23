@@ -81,3 +81,8 @@ public class MapasYDatosGUI extends JFrame {
             JOptionPane.showMessageDialog(this, "Ingrese un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    public static void main(String[] args) {
+        new MapasYDatosGUI();
+    }
+}
