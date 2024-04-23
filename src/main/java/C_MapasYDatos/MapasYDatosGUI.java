@@ -70,3 +70,14 @@ public class MapasYDatosGUI extends JFrame {
         }
     }
 
+    private void recuperarDatos() {
+        try {
+            int numero = Integer.parseInt(inputNumero.getText());
+            char letra = gestorMapas.obtenerLetraDeNumero(numero);
+            String texto = gestorMapas.obtenerTextoDeNumero(numero);
+            areaResultados.append("Recuperado para " + numero + ": Letra -> " + letra + ", Texto -> " + texto + "\n");
+            inputNumero.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ingrese un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
