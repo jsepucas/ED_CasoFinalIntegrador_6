@@ -38,3 +38,21 @@ public class MapasYDatosGUI extends JFrame {
         panelBotones.add(botonAgregarTexto);
         panelBotones.add(botonRecuperar);
         add(panelBotones, BorderLayout.CENTER);
+
+        areaResultados = new JTextArea(10, 20);
+        areaResultados.setEditable(false);
+        add(new JScrollPane(areaResultados), BorderLayout.SOUTH);
+    }
+
+    private void agregarLetra() {
+        try {
+            int numero = Integer.parseInt(inputNumero.getText());
+            char letra = inputLetra.getText().charAt(0);
+            gestorMapas.agregarRelacionNumeroLetra(numero, letra);
+            areaResultados.append("Agregada relación: " + numero + " -> " + letra + "\n");
+            inputNumero.setText("");
+            inputLetra.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error en la entrada de datos.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
