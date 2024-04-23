@@ -13,7 +13,7 @@ public class GestorMapas {
     }
 
     private void inicializarDatos() {
-        // De números a letras (ejemplo simple)
+        // De números a letras
         numerosLetras.put(1, 'A');
         numerosLetras.put(2, 'B');
         numerosLetras.put(3, 'C');
@@ -35,6 +35,11 @@ public class GestorMapas {
     public char obtenerLetraDeNumero(int numero) {
         return numerosLetras.getOrDefault(numero, '?'); // Devuelve '?' si el número no está asociado.
     }
+
+    public String obtenerTextoDeNumero(int numero) {
+        return numerosTextos.getOrDefault(numero, "desconocido"); // Devuelve "desconocido" si no hay correspondencia.
+    }
+}
 
 
 
