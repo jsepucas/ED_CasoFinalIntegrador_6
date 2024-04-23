@@ -72,3 +72,11 @@ public class AnalisisOrgInfoGUI extends JFrame {
         add(panelListas, BorderLayout.CENTER);
     }
 
+    private void agregarNombre() {
+        String nombre = inputNombre.getText().trim();
+        if (!nombre.isEmpty()) {
+            listaNombresModel.addElement(nombre);
+            inputNombre.setText("");
+        }
+    }
+
