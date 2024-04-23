@@ -79,4 +79,20 @@ public class AnalisisOrgInfoGUI extends JFrame {
             inputNombre.setText("");
         }
     }
+    private void agregarVenta() {
+        try {
+            String cliente = inputCliente.getText().trim();
+            double monto = Double.parseDouble(inputMonto.getText().trim());
+            String fecha = inputFecha.getText().trim();
+            if (!cliente.isEmpty() && !fecha.isEmpty()) {
+                RegistroVenta nuevaVenta = new RegistroVenta(cliente, monto, fecha);
+                gestorVentas.agregarVenta(nuevaVenta);
+                listaVentasModel.addElement(nuevaVenta.toString());
+                inputCliente.setText("");
+                inputMonto.setText("");
+                inputFecha.setText("");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El monto debe ser un número válido.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+        }
 
