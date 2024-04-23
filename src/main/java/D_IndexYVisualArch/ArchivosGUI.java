@@ -36,4 +36,10 @@ public class ArchivosGUI extends JFrame {
         listaArchivos = new JList<>(modeloLista);
         add(new JScrollPane(listaArchivos), BorderLayout.CENTER);
 
+        JButton botonOrdenar = new JButton("Ordenar Archivos");
+        botonOrdenar.addActionListener(e -> ordenarArchivos());
+        add(botonOrdenar, BorderLayout.SOUTH);
+    }
+
+
 
