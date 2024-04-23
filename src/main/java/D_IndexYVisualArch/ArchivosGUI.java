@@ -26,3 +26,9 @@ public class ArchivosGUI extends JFrame {
         inputRuta = new JTextField(30);
         JButton botonIndexar = new JButton("Indexar Directorio");
         botonIndexar.addActionListener(this::accionIndexar);
+
+
+        panelEntrada.add(inputRuta, BorderLayout.CENTER);
+        panelEntrada.add(botonIndexar, BorderLayout.EAST);
+        add(panelEntrada, BorderLayout.NORTH);
+
