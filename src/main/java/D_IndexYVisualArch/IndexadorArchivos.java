@@ -11,3 +11,13 @@ public class IndexadorArchivos {
     public IndexadorArchivos() {
         listaArchivos = new ArrayList<>();
     }
+
+
+    public void indexarDirectorio(String rutaDirectorio) {
+        File directorio = new File(rutaDirectorio);
+        if (directorio.exists()) {
+            indexarDirectorioRecursivo(directorio);
+        } else {
+            System.out.println("El directorio no existe.");
+        }
+    }
