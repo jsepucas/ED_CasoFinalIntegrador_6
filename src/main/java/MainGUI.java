@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-import A_GestionDatosDinámicos.InterfazGraficaGUI;
+import A_GestionDatosDinámicos.InterfazGrafica;
 import B_AnalisisOrg_Info.AnalisisOrgInfoGUI;
 import C_MapasYDatos.MapasYDatosGUI;
 import D_IndexYVisualArch.ArchivosGUI;
@@ -21,8 +21,7 @@ public class MainGUI extends JFrame {
 
         // Botón para el módulo A - Gestión de Datos Dinámicos
         JButton btnModuloA = new JButton("Gestión de Datos Dinámicos");
-        btnModuloA.addActionListener(e -> new InterfazGraficaGUI().setVisible(true));
-
+        btnModuloA.addActionListener(e -> new InterfazGrafica().setVisible(true));
 
         // Botón para el módulo B - Análisis y Organización de Información
         JButton btnModuloB = new JButton("Análisis y Organización de Información");
