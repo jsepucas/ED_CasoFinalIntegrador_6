@@ -6,4 +6,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class IndexadorArchivos {
-}
+    private List<String> listaArchivos;
+
+    public IndexadorArchivos() {
+        listaArchivos = new ArrayList<>();
+    }
