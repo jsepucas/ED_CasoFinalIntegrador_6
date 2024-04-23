@@ -30,3 +30,7 @@ public class IndexadorArchivos {
                     listaArchivos.add(archivo.getAbsolutePath());
                 } else if (archivo.isDirectory()) {
                     indexarDirectorioRecursivo(archivo);
+                }
+            }
+        }
+    }
