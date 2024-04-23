@@ -28,3 +28,13 @@ public class MapasYDatosGUI extends JFrame {
         JButton botonAgregarLetra = new JButton("Agregar Letra");
         JButton botonAgregarTexto = new JButton("Agregar Texto");
         JButton botonRecuperar = new JButton("Recuperar Datos");
+
+        botonAgregarLetra.addActionListener(e -> agregarLetra());
+        botonAgregarTexto.addActionListener(e -> agregarTexto());
+        botonRecuperar.addActionListener(e -> recuperarDatos());
+
+        JPanel panelBotones = new JPanel();
+        panelBotones.add(botonAgregarLetra);
+        panelBotones.add(botonAgregarTexto);
+        panelBotones.add(botonRecuperar);
+        add(panelBotones, BorderLayout.CENTER);
