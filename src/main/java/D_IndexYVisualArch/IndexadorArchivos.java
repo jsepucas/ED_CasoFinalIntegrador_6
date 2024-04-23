@@ -21,3 +21,12 @@ public class IndexadorArchivos {
             System.out.println("El directorio no existe.");
         }
     }
+
+    private void indexarDirectorioRecursivo(File directorio) {
+        File[] archivos = directorio.listFiles();
+        if (archivos != null) {
+            for (File archivo : archivos) {
+                if (archivo.isFile()) {
+                    listaArchivos.add(archivo.getAbsolutePath());
+                } else if (archivo.isDirectory()) {
+                    indexarDirectorioRecursivo(archivo);
