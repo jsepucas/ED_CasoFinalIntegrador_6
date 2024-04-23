@@ -52,5 +52,18 @@ public class ArchivosGUI extends JFrame {
         }
     }
 
+    private void ordenarArchivos() {
+        indexador.ordenarArchivos();
+        modeloLista.clear();
+        for (String archivo : indexador.getListaArchivos()) {
+            modeloLista.addElement(archivo);
+        }
+    }
+
+    public static void main(String[] args) {
+        new ArchivosGUI();
+    }
+}
+
 
 
