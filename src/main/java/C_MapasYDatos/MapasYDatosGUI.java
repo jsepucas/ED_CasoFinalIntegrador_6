@@ -56,3 +56,17 @@ public class MapasYDatosGUI extends JFrame {
             JOptionPane.showMessageDialog(this, "Error en la entrada de datos.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    private void agregarTexto() {
+        try {
+            int numero = Integer.parseInt(inputNumero.getText());
+            String texto = inputTexto.getText();
+            gestorMapas.agregarRelacionNumeroTexto(numero, texto);
+            areaResultados.append("Agregada relación texto: " + numero + " -> " + texto + "\n");
+            inputNumero.setText("");
+            inputTexto.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error en la entrada de datos.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
