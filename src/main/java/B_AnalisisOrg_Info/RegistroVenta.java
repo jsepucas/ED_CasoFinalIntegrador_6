@@ -6,5 +6,11 @@ public class RegistroVenta {
     private double monto;
     private String fecha;
 
+    public RegistroVenta(String cliente, double monto, String fecha) {
+        this.cliente = cliente;
+        this.monto = monto;
+        this.fecha = fecha;
+    }
+
 
 }
