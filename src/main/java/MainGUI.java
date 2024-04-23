@@ -36,3 +36,15 @@ public class MainGUI extends JFrame {
         JButton btnModuloD = new JButton("Indexación y Visualización de Archivos");
         btnModuloD.addActionListener(e -> new ArchivosGUI().setVisible(true));
 
+
+        add(btnModuloA);
+        add(btnModuloB);
+        add(btnModuloC);
+        add(btnModuloD);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(MainGUI::new);
+    }
+}
+
