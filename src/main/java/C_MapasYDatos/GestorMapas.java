@@ -24,5 +24,17 @@ public class GestorMapas {
         numerosTextos.put(3, "tres");
     }
 
+    public void agregarRelacionNumeroLetra(int numero, char letra) {
+        numerosLetras.put(numero, letra);
+    }
+
+    public void agregarRelacionNumeroTexto(int numero, String texto) {
+        numerosTextos.put(numero, texto);
+    }
+
+    public char obtenerLetraDeNumero(int numero) {
+        return numerosLetras.getOrDefault(numero, '?'); // Devuelve '?' si el número no está asociado.
+    }
+
 
 
