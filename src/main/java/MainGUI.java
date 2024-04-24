@@ -22,22 +22,26 @@ public class MainGUI extends JFrame {
 //-------------------------Código de la aplicación principal-------------------------
 
     private void initComponents() {
+
+        // panel con fondo de imagen
         FondoPanel fondoPanel = new FondoPanel("src/main/resources/6.gif", 10, 30 );
         setContentPane(fondoPanel);
         fondoPanel.setLayout(new BorderLayout());
 
+
+        // Panel para los botones con FlowLayout para centrarlos y tamaño fijo
+
         JPanel buttonPanelContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 2000, 20));
         buttonPanelContainer.setOpaque(false);
 
+
         // Panel para los botones con BoxLayout para alinearlos verticalmente y tamaño fijo
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.setOpaque(false);
 
         buttonPanel.setMaximumSize(new Dimension(300, buttonPanel.getPreferredSize().height));
-
-
-
 
 
 //-------------------------------------------------------------------------------------------------------------------------------
@@ -64,6 +68,7 @@ public class MainGUI extends JFrame {
 
     }
 
+    //Método para crear botones-----------------------------------------------------------------------------------------------
     private void addButton(String text, Class<? extends JFrame> frameClass, JPanel panel) {
         JButton button = new JButton(text);
         button.setFont(new Font("Arial", Font.BOLD, 18));
@@ -89,6 +94,8 @@ public class MainGUI extends JFrame {
         panel.add(Box.createRigidArea(new Dimension(0, 10))); // Espaciado entre botones
     }
 
+
+    //Método main para ejecutar la aplicación : )
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MainGUI::new);
     }
