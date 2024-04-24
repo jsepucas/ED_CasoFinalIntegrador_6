@@ -22,15 +22,20 @@ public class MainGUI extends JFrame {
 //-------------------------Código de la aplicación principal-------------------------
 
     private void initComponents() {
-        FondoPanel fondoPanel = new FondoPanel("src/main/resources/6.gif", 1920, 1080 );
+        FondoPanel fondoPanel = new FondoPanel("src/main/resources/6.gif", 10, 30 );
         setContentPane(fondoPanel);
         fondoPanel.setLayout(new BorderLayout());
 
+        JPanel buttonPanelContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 2000, 20));
+        buttonPanelContainer.setOpaque(false);
 
-        // Panel para los botones en el lado izquierdo
+        // Panel para los botones con BoxLayout para alinearlos verticalmente y tamaño fijo
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
-        buttonPanel.setOpaque(false); // Panel transparente para mostrar el fondo
+        buttonPanel.setOpaque(false);
+
+        buttonPanel.setMaximumSize(new Dimension(300, buttonPanel.getPreferredSize().height));
+
 
 
 
@@ -38,20 +43,21 @@ public class MainGUI extends JFrame {
 //-------------------------------------------------------------------------------------------------------------------------------
 
         //Creación de los botones para cada módulo de la aplicación. (A, B, C, D)
-        addButton("A. Gestión de Datos Dinámicos ", InterfazGrafica.class, buttonPanel);
-        addButton("B. Análisis y Organización de Información", AnalisisOrgInfoGUI.class, buttonPanel);
-        addButton("C. Mapas y Asociación de Datos", MapasYDatosGUI.class, buttonPanel);
-        addButton("D. Indexación y Visualización de Archivos", ArchivosGUI.class, buttonPanel);
+        addButton("A. Gestión de Datos Dinámicos         ", InterfazGrafica.class, buttonPanel);
+        addButton("         B. Análisis y Organización de Información", AnalisisOrgInfoGUI.class, buttonPanel);
+        addButton("C. Mapas y Asociación de Datos        ", MapasYDatosGUI.class, buttonPanel);
+        addButton("          D. Indexación y Visualización de Archivos", ArchivosGUI.class, buttonPanel);
 
         // Agregar el panel de botones al lado izquierdo
-        fondoPanel.add(buttonPanel, BorderLayout.CENTER);
+        buttonPanelContainer.add(buttonPanel);
+        fondoPanel.add(buttonPanelContainer, BorderLayout.CENTER);
 
 
         // Agregar logo al lado derecho
         JLabel imagenEmpresa = new JLabel(new ImageIcon(new ImageIcon("src/main/resources/AlfonsoXSabio.png").getImage().getScaledInstance(620, 220, Image.SCALE_SMOOTH)));
         fondoPanel.add(imagenEmpresa, BorderLayout.NORTH);
 
-        JLabel imagenEsquina = new JLabel(new ImageIcon(new ImageIcon("src/main/resources/UAX2.png").getImage().getScaledInstance(125,63 , Image.SCALE_SMOOTH)));
+        JLabel imagenEsquina = new JLabel(new ImageIcon(new ImageIcon("src/main/resources/UAX2.png").getImage().getScaledInstance(125,68, Image.SCALE_SMOOTH)));
         fondoPanel.add(imagenEsquina, BorderLayout.PAGE_END);
 
 
@@ -60,12 +66,16 @@ public class MainGUI extends JFrame {
 
     private void addButton(String text, Class<? extends JFrame> frameClass, JPanel panel) {
         JButton button = new JButton(text);
-        button.setFont(new Font("Arial", Font.BOLD, 16));
+        button.setFont(new Font("Arial", Font.BOLD, 18));
         button.setForeground(Color.BLACK);
-        button.setBackground(new Color(0, 69, 124));
-        button.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        button.setPreferredSize(new Dimension(700, 65) );
-        button.setBorderPainted(true);
+        button.setBackground(new Color(0, 92, 169, 120));
+        button.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
+        button.setPreferredSize(new Dimension(0, 65) );
+        button.setMaximumSize(new Dimension(Integer.MAX_VALUE,1200   )); // Ajuste clave aquí
+
+        button.setPreferredSize(new Dimension(550, 65));
+        button.setMaximumSize(new Dimension(550, 65));
+
         button.addActionListener(e -> {
             try {
                 JFrame frame = frameClass.getDeclaredConstructor().newInstance();
@@ -74,7 +84,7 @@ public class MainGUI extends JFrame {
                 ex.printStackTrace();
             }
         });
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.setAlignmentX(Component.TOP_ALIGNMENT);
         panel.add(button);
         panel.add(Box.createRigidArea(new Dimension(0, 10))); // Espaciado entre botones
     }

@@ -19,5 +19,7 @@ public class FondoPanel extends JPanel {
         g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.83f));
         g2d.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
         g2d.dispose();
+
+        //
     }
 }
